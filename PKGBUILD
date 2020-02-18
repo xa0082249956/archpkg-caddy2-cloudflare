@@ -37,7 +37,7 @@ build() {
   fi
   mkdir $pkgpath
 
-  ln -s main.go $pkgpath/main.go
+  ln -s $(pwd)/main.go $pkgpath/main.go
   cd $pkgpath
 
   go mod init caddy
