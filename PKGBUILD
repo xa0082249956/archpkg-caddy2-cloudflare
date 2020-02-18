@@ -15,7 +15,7 @@ source=("main.go"
         "Caddyfile"
         "caddy.service")
 
-sha256sums=('47192ea88eacafdf76569bf0715cc13f096d847a2d6c9e7e9495ca0794a78efe'
+sha256sums=('53f9475eb2a740c4441c028eb0b513296434d5941373fdbffd0cf0d11cbd2c9e'
             'adf24a575a20ae9f503fac2348f7cfd26256f167992a1938f1a53a6d77b9b1f4'
             'c3eb327ba564b167e508b2bfa76ef459cacef09fb2e67a7f09944cb8f92e3207')
 
