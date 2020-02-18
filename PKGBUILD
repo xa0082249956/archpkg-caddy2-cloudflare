@@ -22,7 +22,8 @@ sha256sums=('47192ea88eacafdf76569bf0715cc13f096d847a2d6c9e7e9495ca0794a78efe'
 build() {
   export GOPATH="$srcdir/go"
 
-  if [ -e $GOPATH ] then
+  if [ -e $GOPATH ] 
+  then
     chmod -R a+w $GOPATH
     rm -r $GOPATH
   fi
