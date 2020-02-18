@@ -20,14 +20,17 @@ sha256sums=('47192ea88eacafdf76569bf0715cc13f096d847a2d6c9e7e9495ca0794a78efe'
             'c3eb327ba564b167e508b2bfa76ef459cacef09fb2e67a7f09944cb8f92e3207')
 
 build() {
-  export GOPATH="$srcdir"
+  export GOPATH="$srcdir/go"
 
-  mkdir -p ${srcdir}/caddy
-  mv main.go ${srcdir}/caddy
-  cd ${srcdir}/caddy
+  if [ -e $GOPATH ] then
+    chmod -R a+w $GOPATH
+    rm -r $GOPATH
+  fi
+  mkdir $GOPATH
 
+  cd $srcdir
   go mod init caddy
-  go get github.com/caddyserver/caddy/v2@v2.0.0-${pkgver}
+  go get github.com/caddyserver/caddy/v2@v2.0.0-$pkgver
   go build
 }
 
@@ -35,7 +38,5 @@ package() {
   mkdir -p "$pkgdir/var/lib/caddy2"
   install -D -m 0644 Caddyfile "$pkgdir/etc/caddy2/Caddyfile"
   install -D -m 0644 caddy.service "$pkgdir/usr/lib/systemd/system/caddy.service"
-  cd ${srcdir}/caddy
   install -D -m 0755 caddy "$pkgdir/usr/bin/caddy"
 }
-
